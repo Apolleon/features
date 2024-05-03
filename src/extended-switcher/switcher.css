@@ -1,0 +1,91 @@
+.switcher {
+  position: relative;
+  display: inline-block;
+  margin: 1px 10px;
+  height: 33px;
+  width: 219px;
+  z-index: 1;
+  border-radius: 22px;
+  background-color: #f5f6f6;
+  transition: background-color 0.2s linear;
+  display: flex;
+  align-items: center;
+}
+
+.switcher-label {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  justify-content: center;
+  border: 2px solid var(--bg-border-color);
+  height: 29px;
+  width: 29px;
+  border-radius: 50%;
+  top: 0;
+  text-transform: none !important;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.switcher-left,
+.switcher-radio-left {
+  position: absolute;
+  left: 0;
+}
+
+.switcher-neutral,
+.switcher-radio-neutral {
+  position: absolute;
+  left: 95px;
+}
+
+.switcher-neutral {
+  background-color: var(--white-color);
+}
+
+.switcher-right,
+.switcher-radio-right {
+  position: absolute;
+  right: 0;
+}
+
+.switcher input {
+  visibility: hidden;
+  position: absolute;
+}
+
+/* check if checkbox is checked */
+.switcher-left:has(input[type="radio"]:checked),
+.switcher-right:has(input[type="radio"]:checked) {
+  color: #fcfcfc;
+  border: 2px solid lightgrey;
+}
+
+.switcher-neutral:has(input[type="radio"]:checked) {
+  background-color: #2c75e2;
+  color: #fcfcfc;
+  border: none;
+}
+
+/* moving slider styles */
+.switcher-slider {
+  transition: left 0.2s linear 0s, right 0.2s linear 0s;
+  content: "";
+  position: absolute;
+  top: 0;
+  border-radius: 24px;
+  height: 30px;
+  background-color: #2c75e2;
+  left: 95px;
+  right: 95px;
+}
+
+.switcher-right:has(input[type="radio"]:checked) ~ .switcher-slider {
+  left: 95px;
+  right: 0;
+}
+.switcher-left:has(input[type="radio"]:checked) ~ .switcher-slider {
+  left: 0;
+  right: 95px;
+}
