@@ -1,0 +1,10 @@
+.text {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-height: 100px;
+  overflow: hidden;
+  padding: 5px 10px;
+  border: 1px solid gray;
+  width: fit-content;
+  max-width: 600px;
+}
